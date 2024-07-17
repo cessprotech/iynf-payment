@@ -87,15 +87,16 @@ export class AppController {
       { path: 'job' },
       // { path: 'influencer' },
       // { path: 'creator' },
-      
       {
         path: 'creator', 
         select: ['creatorId', 'userId'], 
-        populate: [{ path: 'user', select: ['firstName', 'lastName'], unwindType: 1 }], unwindType: 1 },
+        populate: { path: 'user', select: ['firstName', 'lastName'] }
+      },
       {
         path: 'influencer',
         select: ['influencerId', 'userId'],
-        populate: [{ path: 'user', select: ['firstName', 'lastName'], unwindType: 1 }], unwindType: 1 },
+        populate: { path: 'user', select: ['firstName', 'lastName'] }
+      },
 
       { path: 'bid' },
     ];
