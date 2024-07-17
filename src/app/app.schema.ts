@@ -84,6 +84,8 @@ export class Transaction extends Document {
 const TransactionModelName = Transaction.name;
 const TransactionSchema = CREATE_SCHEMA<Transaction>(Transaction);
 
+TransactionSchema.index({ userId: 1 }, { unique: true });
+
 TransactionSchema.virtual('user', {
   ref: "User",
   localField: 'userId',
