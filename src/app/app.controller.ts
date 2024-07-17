@@ -85,17 +85,8 @@ export class AppController {
 
     paginateOptions.populate = [
       { path: 'job' },
-      // { path: 'influencer' },
-      // { path: 'creator' },
-      {
-        path: 'creator',
-        populate: { path: 'user', select: ['firstName', 'lastName'] },
-      },
-      {
-        path: 'influencer',
-        populate: { path: 'user', select: ['firstName', 'lastName'] },
-      },
-      
+      { path: 'influencerUser' },
+      { path: 'creatorUser' },      
       { path: 'bid' },
     ];
 
