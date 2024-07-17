@@ -89,16 +89,15 @@ export class AppController {
       // { path: 'creator' },
       
       {
-        path: 'creator',
-        select: ['creatorId', 'userId'],
-        populate: { path: 'user', select: ['firstName', 'lastName'] },
-      },
+        path: 'creator', 
+        select: ['creatorId', 'userId'], 
+        populate: [{ path: 'user', select: ['firstName', 'lastName'], unwindType: 1 }], unwindType: 1 },
       {
         path: 'influencer',
         select: ['influencerId', 'userId'],
         populate: { path: 'user', select: ['firstName', 'lastName'] },
       },
-      
+
       { path: 'bid' },
     ];
 

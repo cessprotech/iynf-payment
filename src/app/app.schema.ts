@@ -20,9 +20,6 @@ export class Transaction extends Document {
   @Prop({ default: () => nanoid(12), unique: true })
   readonly transactionId: string;
 
-  @Prop({ required: [true, 'User Is Required!'], unique: true })
-  userId: string;
-
   @Prop({ required: [true, 'Creator Id Is Required!'] })
   readonly creatorId: string;
 
