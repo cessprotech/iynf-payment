@@ -20,9 +20,6 @@ export class Transaction extends Document {
   @Prop({ default: () => nanoid(12), unique: true })
   readonly transactionId: string;
 
-  @Prop({ required: [true, 'User Is Required!'], unique: true })
-  readonly userId: string;
-
   @Prop({ required: [true, 'Creator Id Is Required!'] })
   readonly creatorId: string;
 
@@ -84,14 +81,6 @@ export class Transaction extends Document {
 const TransactionModelName = Transaction.name;
 const TransactionSchema = CREATE_SCHEMA<Transaction>(Transaction);
 
-TransactionSchema.index({ userId: 1 }, { unique: true });
-
-TransactionSchema.virtual('user', {
-  ref: "User",
-  localField: 'userId',
-  foreignField: 'userId',
-  justOne: true
-});
 
 TransactionSchema.virtual('creator', {
   ref: "Creator",
